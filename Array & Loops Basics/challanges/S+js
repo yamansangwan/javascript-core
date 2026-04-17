@@ -1,0 +1,91 @@
+// S+ problem
+
+// The Server Queue API (Bringing it all together)
+
+// The Business Requirement: You are building the security filter for a backend server. Incoming web traffic is stored in an array. You need to process the traffic, skip the spam, block the hackers, and return the safe traffic.
+
+// Your Task:
+
+// Build an Arrow Function called processTraffic. It should accept one parameter: incomingQueue (an array of strings).
+
+// Inside the function, create a local variable let safeTraffic = [];.
+
+// Write a classic for loop to iterate over the incomingQueue.
+
+// The Rules:
+
+// If the current item is exactly "spam", you must continue to skip it.
+
+// If the current item is exactly "hack", print "CRITICAL SECURITY ALERT. SHUTTING DOWN LOOP." and use break to completely kill the loop.
+
+// If it is anything else, .push() it into the safeTraffic array.
+
+// The function must return the safeTraffic array at the very end.
+
+const rawTraffic = ["login", "click", "spam", "scroll", "hack", "refresh"];
+const filterTraffic = (incomingReq) => {
+    let safeReq = [];
+    for (incomingReq = 0; incomingReq < rawTraffic.length; incomingReq++) {
+        if (rawTraffic[incomingReq] == "spam") {
+            continue;
+        }
+        else if (rawTraffic[incomingReq] == "hack") {
+            console.log("CRITICAL SECURITY ALERT. SHUTTING DOWN LOOP");
+        }
+        else {
+            safeReq.push(rawTraffic[incomingReq]);
+        }
+    } console.log(safeReq);
+}
+
+filterTraffic();
+
+
+
+
+
+
+
+
+
+
+// 2nd tryy
+
+const rawTraffic = ["login", "click", "spam", "scroll", "hack", "refresh"];
+const filterTraffic = (incomingReq) => {
+    let safeReq = [];
+    for (let i = 0; i < incomingReq.length; i++) {
+        if (incomingReq[i] === "spam") {
+            continue;
+        }
+        else if (incomingReq[i] === "hack") {
+            console.log("CRITICAL SECURITY ALERT. SHUTTING DOWN LOOP");
+            break;
+
+        }
+        else {
+            safeReq.push(incomingReq[i]);
+
+        }
+    } 
+    return safeReq;
+};
+let result = filterTraffic(rawTraffic);
+
+console.log(result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
