@@ -1,72 +1,129 @@
+// DB always returns an object instead of a single string
+
+// onbject is a complex data structure holds the info using key value
+
+// objects on internet is JSON
+
+// javascript object notation = JSON
+
+// objects are written in { } like dictionary
+
+// syntax : const obj = { key: "value" , key: "value" };
+
+
+
+// example
+const users = {
+    name : "A",   // key : value
+    roll_no :20,
+    enrollment : 3024 
+};
 
 
 
 
 
 
-// object behavious with for...in
-// object can work as a list sortner sometimes in perticular conditions like this ::
 
-// sorts in ascending order
-
-let sons = {
-    "55" : "you 14",
-    "5" : "you 2",
-    "61" : "you 33"
-}
-for (son in sons) {
-    console.log(son); // 5 55 61
-}
+// Methods of accessing a object
 
 
 
+// ____ 1. Dot Notaion
 
-// for same but different situation ::
+// (.) mostly used method
+// object_name.property_name
 
-let sons = {
-    "son 12" : "you 14",
-    "son 5" : "you 2",
-    "son 61" : "you 33"
-}
-for (son in sons) {
-    console.log(son); // 12 5 61
-    console.log(sons[son]);
-}
+console.log(users.name);
 
-// for example we want to make a site for a perticular company / country so we want to list kesy / items accordingly to come first ....
-// but this converts strings into integers if there is no error in it.
-// same as "(Number() function) converts string to number".
-// but conversion should have same integer property.
+// new property that doesn't exist can be created too.
+
+users.blood_group = "B-";
 
 
 
 
-// non integers are in listed order only.
+// _____ 2. [] notaion
+// have to use it when the key have " " spaces between it.
+// or used when a key is stored inside a variable
 
-// cheat code to fix ascending order prevention issue.
+const users2 = {
+    "user name": 'S',
+    number : 5,
+};
+console.log(users2["user name"]);
 
-let sons = {
-    "+55" : "you 14", // added +
-    "+5" : "you 2", // added +
-    "+61" : "you 33" // added +
-}
-for (son in sons) {
-    // added + 
-    console.log(+son); // 55 5 61
-}
+
+// can be used to make dynamic key 
+
+let bg = "blood_group";
+console.log(users[bg]);
 
 
 
 
 
 
-// _____ object important points _____
 
-let sons = {
-    "+55" : "you 14", 
-    "+5" : "you 2", 
-    "+61" : "you 33"
-}
-for (son in sons) {
-    console.log(sons."+5");
-}
+// Deleting the properties of the object
+// delete keyword is used.
+// example user deleted a account 
+
+delete users.roll_no;
+console.log(users);
+
+
+
+
+
+
+
+// Nested Objects
+// when object holds another objects
+// have to chaini the dots to grab access 
+
+const users4 = {
+    name: "AsAsh",
+    address:{
+        add1: `haryana`,
+        add2: `pubjab`,
+        add3: {
+            main_ad1: `j***`,
+            main_ad2: `g***`
+        }
+    }
+};
+console.log(users4.address.add3.main_ad2);
+
+
+
+
+
+// Practice Challenge for objects
+// Your task is to apply an automated update to this object using standard object methods.
+// /Read: console.log the server's memory spec.
+// Update: Change the status from "online" to "maintenance".
+// Create: Add a brand new key to the main object called ipAddress and set it to "192.168.1.50".
+// Delete: For security reasons, permanently delete the admin property from the object.
+// The Output: console.log the entire serverConfig object at the very end to verify your changes.
+
+
+
+const serverConfig = {
+    serverId: "us-east-1a",
+    status: "online",
+    admin: "DevOps_Team",
+    specs: {
+        cpu: "16-core",
+        memory: "32GB",
+        storage: "1TB"
+    }
+};
+
+console.log(serverConfig.specs.memory);
+serverConfig.status = "Maintenance";
+serverConfig.ipAddress = "192.168.1.50";
+delete serverConfig.admin;
+console.log(serverConfig);
+
+
