@@ -29,6 +29,8 @@ console.log(Object.entries(obj));
 
 
 
+
+
 // 2. Object Security 
 // in node.js we use DB passwords and API keys into an object
 
@@ -92,6 +94,7 @@ console.log(idPass2)
 
 
 
+
 // Practice Challenge of Object Methods
 
 // The Scenario: You are writing the backend ledger for a banking app. The customer's account data needs to be partially secured. We need to analyze the data, lock the structure, but allow the balance to change.
@@ -127,6 +130,108 @@ console.log(bankAccount);
 // updating the balance
 bankAccount.balance = 1200;
 console.log(bankAccount);
+
+
+
+
+
+
+
+// We need to know if the car has a "color" property. Use Object.keys() to turn the object into an array, and then use the .includes() string/array method to console.log whether "color" exists (true or false).
+
+
+const car = { 
+    make: "Toyota", 
+    model: "Camry", 
+    year: 2022 
+};
+const keys = Object.keys(car);
+
+console.log(keys.includes("color"));
+          // OR
+console.log(keys.some(item => item === "color"));
+
+
+
+
+
+
+
+
+// Use Object.values() to extract just the numbers into an array. Then, chain a .reduce() method to calculate and console.log the total sales for the day.
+
+
+const dailySales = { 
+    morning: 250, 
+    afternoon: 400, 
+    evening: 650 
+};
+
+const salesValue = Object.values(dailySales);
+const totalValue = salesValue.reduce(
+    (ac,item) => ac + item , 0
+);
+
+console.log(totalValue);
+
+
+
+
+
+
+
+
+
+// The HR department says the role and salary keys cannot be deleted, but the salary amount can be increased. Apply the correct security method, update the salary to 75000, and console.log the object.
+
+
+const employmentContract = { 
+    salary: 60000, 
+    role: "Junior Dev" 
+};
+
+Object.seal(employmentContract);
+employmentContract.salary = 75000;
+delete(employmentContract.salary); // doesn't work
+
+console.log(employmentContract);
+
+
+
+
+// The warehouse sent you an object representing their entire stock, but it's not an array—it's an object where the keys are the item names and the values are the quantities.
+
+// You must build a data pipeline. You cannot use classic for loops.
+
+// Use Object.entries(warehouseStock). (Hint: This creates an array of arrays, like this: [ ["laptops", 5], ["keyboards", 0] ]).
+
+// Use .filter() to throw away any item that has 0 stock. (Hint: If your item is ["keyboards", 0], index 0 is the name, index 1 is the quantity).
+
+// Use .map() on the filtered data to return a clean array of strings formatted exactly like this: "We have 5 laptops in stock."
+
+// console.log the final array of strings.
+
+
+
+const warehouseStock = {
+    laptops: 5,
+    keyboards: 0,
+    mice: 12,
+    monitors: 0,
+    cables: 45
+};
+
+const itemArr = Object.entries(warehouseStock);
+
+const stockfilteration = itemArr.filter(
+    item => item[1] > 0        
+);
+
+const finalStock = stockfilteration.map(
+    item => `We have ${item[1]} ${item[0]} in stock`
+)
+
+console.log(finalStock);
 
 
 
