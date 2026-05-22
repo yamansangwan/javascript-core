@@ -1,0 +1,26 @@
+
+[
+  {
+    "Note": "This ia an basic structure of JSON",
+    "Note_1": "JSON dont support comments",
+    "Note_2": "Properties are always written in double quotes",
+    "Note_3": "Preferred over XML because of easy parsing",
+    "Note_4": "we can convert JSON into objects using parsing"
+  },
+  {
+    "Example": "Nested Objs in JSON",
+    "Obj": {
+      "Note": "This ia an basic structure of JSON",
+      "Note_1": "JSON dont support comments",
+      "Note_2": "Properties are always written in double quotes",
+      "Note_3": "Preferred over XML because of easy parsing",
+      "Note_4": "we can convert JSON into objects using parsing"
+    }
+  }
+]
+
+
+
+
+
+
