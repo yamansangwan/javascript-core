@@ -127,3 +127,94 @@ delete serverConfig.admin;
 console.log(serverConfig);
 
 
+
+
+
+
+// You have a variable let searchId = "user_202";. You are not allowed to use .user_202. Use the searchId variable to console.log Bob's name.
+
+
+const database = { user_101: "Alice", user_202: "Bob" };
+let searchId = "user_202";
+console.log(database.searchId); // undefined ([] notation required).
+console.log(database[searchId]);
+
+
+
+
+
+
+
+// The player drank a potion and leveled up. Update hp to 100 and level to 2. Then, create a brand new key inside stats called mana and set it to 50.
+
+const gameSave = { 
+    player: { 
+        stats: { 
+            hp: 50, 
+            level: 1 } 
+        } };
+gameSave.player.stats.mana = 50;
+gameSave.player.stats.hp = 100;
+gameSave.player.stats.level = 2;
+console.log(gameSave);
+
+
+
+
+
+
+
+
+// The frontend requested the user's data. Before you console.log(userSession), permanently delete the password property so it isn't leaked.
+
+
+const userSession = { 
+    email: "test@test.com", 
+    password: "SuperSecretPassword123", 
+    isLoggedIn: true 
+};
+
+delete(userSession.password);
+console.log(userSession);
+
+
+
+
+
+
+
+
+// You are managing a fleet of web servers. You need to build a system that securely updates server traffic without allowing hackers to tamper with the core configuration.
+
+// Secure the serverNode object so that no one can change the ip or region, but the traffic can still be updated. (Wait... think carefully. If seal allows ALL existing values to change, and freeze blocks ALL changes... you can't lock just half an object with basic methods! So for this boss, just apply the method that prevents new keys from being added/deleted but allows traffic to change).
+
+// Write an arrow function called addTraffic that accepts a number.
+
+// Inside the function, add that number to the current serverNode.traffic.
+
+// Try to maliciously delete the serverNode.ip outside the function.
+
+// Run addTraffic(500).
+
+// console.log(serverNode) to prove the IP survived and the traffic is 2000.
+
+
+const serverNode = {
+    ip: "192.168.0.1",
+    region: "us-east",
+    traffic: 1500
+};
+
+// only updates allowed
+Object.seal(serverNode);
+const addTraffic = (num) => serverNode.traffic += num;
+delete(serverNode.ip);
+
+addTraffic(500);
+console.log(serverNode);
+
+
+
+
+
+
