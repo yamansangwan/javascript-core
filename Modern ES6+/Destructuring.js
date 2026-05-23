@@ -35,6 +35,29 @@ console.log(user17); // d,e,f
 
 
 
+  // default value with value extarction :
+
+const arr5 = ["a", "b"];
+const [ a , b , c = "c" ] = arr5; // default value set
+console.log(a,b,c)
+
+// default works only when value === undefined
+// NOT null
+
+
+
+  // value swapping :
+
+let e = "ee";
+let f = "ff";
+
+[e,f] = [f,e];
+console.log ("e is " ,e);
+console.log("f is " ,f);
+
+
+
+
 
 
 
