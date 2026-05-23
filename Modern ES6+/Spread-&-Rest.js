@@ -5,6 +5,27 @@
 
 // Use Case : In modern backend architecture, we follow a rule called Immutability. We never directly modify a database object in memory. Instead, we create a copy of it, apply the updates to the copy, and save the new version. Spread makes this effortless.
 
+// takes value OUT from an aarray / object and places / moves them somewhere else
+
+
+// IMP Syntax for nested properties of object ::
+
+// const copy = {
+//     ...obj,
+//     prop1:{
+//         ...obj.prop1,
+//         nested_prop2: {
+//             ...obj.nested_prop2: {
+//                 nested_prop3:{
+//                     ...obj.nested_prop3
+//                 }
+//             }
+//         }
+//     }
+// }
+
+
+
 
 
 // i) Copy and updating Objects
