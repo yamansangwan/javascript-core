@@ -1,0 +1,58 @@
+
+ERROR HANDLING
+______________
+
+
+try :
+used to test risky code
+
+
+catch :
+handles errors safely
+prevents app crash
+
+
+finally :
+always runs
+mostly used for cleanup
+
+
+try/catch flow:
+
+try {
+   risky code
+}
+
+catch(error) {
+   handle error
+}
+
+finally {
+   always runs
+}
+
+
+
+error object contains:
+
+error.message
+error.name
+error.stack
+
+
+
+use cases:
+
+API calls
+database errors
+invalid JSON
+authentication
+file handling
+
+
+
+one line memory:
+
+try     → test code
+catch   → handle error
+finally → always execute
